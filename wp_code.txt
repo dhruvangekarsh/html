@@ -11,11 +11,15 @@ category temeplete
 
 2.subcategory data fetch  
  <?php
-$subcategories = get_categories('&child_of=3&hide_empty'); // List subcategories of category '4' (even the ones with no posts in them)
+$subcategories = get_categories('&child_of=3&hide_empty'); // List subcategories of category '4' (even the ones with no posts in 
+
+them)
 
 foreach ($subcategories as $subcategory) {?>
 <div class="rtimage">
-<?php  echo sprintf('<h2><a href="%s">%s</a></h2>', get_category_link($subcategory->term_id), apply_filters('get_term', $subcategory->name));
+<?php  echo sprintf('<h2><a href="%s">%s</a></h2>', get_category_link($subcategory->term_id), apply_filters('get_term', 
+
+$subcategory->name));
     if (function_exists('z_taxonomy_image_url')){?> 
 	<div class="rimg"><img src="<?php echo z_taxonomy_image_url($subcategory->term_id);?>"></div></div>
 	<? }?>
@@ -36,9 +40,14 @@ plugin:post templete
     </div>
 </a>
 
-4.primary menu  <?php wp_nav_menu( array( 'theme_location' => 'primary','container_class' => '') ); ?>
-5.menu code  <?php wp_nav_menu( array('menu' => 'Products','container_class' => '') ); ?>
-  <?php wp_nav_menu( array('theme_location' => 'primary','container_class' => '','items_wrap' => '<ul class="nav navbar-nav pull-right">%3$s</ul>',));?>
+4.primary menu <?php wp_nav_menu( array( 'theme_location' => 'primary','container_class' => '') ); ?>
+5.menu code <?php wp_nav_menu( array('menu' => 'menu_name','container_class' => '','items_wrap' => '<ul class="nav navbar-nav pull-
+
+right">%3$s</ul>',));?>
+
+-> Print Menu name = <?php echo $nav_menu = wp_get_nav_menu_object( $menu_ID );
+
+-> Print Menu = <?php wp_nav_menu( array('menu' => 'About Us','container_class' => '') ); ?>
 
 
 6.content data
@@ -214,7 +223,11 @@ endif;
 /******************* facebook sharing **************************************/
 
 
-<?php /*?><li class="facebook shareandlike"> <a href="http://www.facebook.com/sharer.php?s=100&p[title]=<?php echo'facebook';?>&p[summary]=<?php echo rawurlencode(get_permalink());?>&p[url]=<?php echo $iframeurl;?>&p[images][0]=<?php echo $iframeurl;?>, 'sharer'"> <i class="fa fa-facebook-square"></i> <span class="text">Share This Video On Facebook</span><?php 
+<?php /*?><li class="facebook shareandlike"> <a href="http://www.facebook.com/sharer.php?s=100&p[title]=<?php echo'facebook';?>&p
+
+[summary]=<?php echo rawurlencode(get_permalink());?>&p[url]=<?php echo $iframeurl;?>&p[images][0]=<?php echo $iframeurl;?>, 
+
+'sharer'"> <i class="fa fa-facebook-square"></i> <span class="text">Share This Video On Facebook</span><?php 
 
               
               </a> </li> */?>
@@ -289,7 +302,9 @@ foreach ( $categories as $category ) {
 
 
 
-/********************************************** diffrence betweeen two dates in wordpress (monson project home template) **********************************************/
+/********************************************** diffrence betweeen two dates in wordpress (monson project home template) 
+
+**********************************************/
 
  <?php 
 	$categoryid = get_cat_ID( 'Event' );
@@ -312,12 +327,16 @@ $minutes = floor(($seconds - ($days * 86400) - ($hours * 3600))/60);
       <div class="leftside col-md-9">
         <?php $nexteventtxt = get_post_meta( $homepageid, 'next_event_text', true);?>
         <h1><?php echo $nexteventtxt;?>:</h1>
-        <h2><?php echo get_the_title();?> <?php echo date('D',strtotime($givendate));?>. <?php echo date('M',strtotime($givendate));?>. <?php echo date('d',strtotime($givendate));?></h2>
+        <h2><?php echo get_the_title();?> <?php echo date('D',strtotime($givendate));?>. <?php echo date('M',strtotime
+
+($givendate));?>. <?php echo date('d',strtotime($givendate));?></h2>
       </div>
 
 
 
-/********************************************** end date diffrence ***********************************************************************************/
+/********************************************** end date diffrence 
+
+***********************************************************************************/
 
 
    font awesome iocns  reguire plugin 
